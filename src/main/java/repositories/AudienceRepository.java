@@ -11,7 +11,7 @@ public class AudienceRepository {
 
     public List<Audience> findAll(){
         Session session = HibernateUtils.openSession();
-        List<Audience> audiences = session.createQuery("select m from Audience m", Audience.class).getResultList();
+        List<Audience> audiences = session.createQuery("select a from Audience a", Audience.class).getResultList();
         session.close();
         return audiences;
     }
