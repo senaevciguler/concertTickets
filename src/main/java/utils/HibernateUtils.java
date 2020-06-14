@@ -16,7 +16,10 @@ import java.util.Properties;
 public class HibernateUtils {
     private static SessionFactory sessionFactory;
 
-    private HibernateUtils(){};
+    private HibernateUtils() {
+    }
+
+    ;
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
@@ -41,14 +44,14 @@ public class HibernateUtils {
                         StandardServiceRegistryBuilder().
                         applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return sessionFactory;
     }
 
-    public static Session openSession(){
+    public static Session openSession() {
         return getSessionFactory().openSession();
     }
 

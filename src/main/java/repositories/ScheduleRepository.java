@@ -8,12 +8,13 @@ import utils.HibernateUtils;
 import java.util.List;
 
 public class ScheduleRepository {
-    public List<Schedule> findAll(){
+    public List<Schedule> findAll() {
         Session session = HibernateUtils.openSession();
         List<Schedule> schedules = session.createQuery("select s from Schedule s", Schedule.class).getResultList();
         session.close();
         return schedules;
     }
+
     public Schedule findById(Long id) {
         Session session = HibernateUtils.openSession();
         Schedule schedule = session.find(Schedule.class, id);

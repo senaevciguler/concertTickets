@@ -9,12 +9,13 @@ import java.util.List;
 
 public class AudienceRepository {
 
-    public List<Audience> findAll(){
+    public List<Audience> findAll() {
         Session session = HibernateUtils.openSession();
         List<Audience> audiences = session.createQuery("select a from Audience a", Audience.class).getResultList();
         session.close();
         return audiences;
     }
+
     public Audience findById(Long id) {
         Session session = HibernateUtils.openSession();
         Audience audience = session.find(Audience.class, id);

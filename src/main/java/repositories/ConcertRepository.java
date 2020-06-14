@@ -8,12 +8,13 @@ import utils.HibernateUtils;
 import java.util.List;
 
 public class ConcertRepository {
-    public List<Concert> findAll(){
+    public List<Concert> findAll() {
         Session session = HibernateUtils.openSession();
         List<Concert> concerts = session.createQuery("select c from Concert c", Concert.class).getResultList();
         session.close();
         return concerts;
     }
+
     public Concert findById(Long id) {
         Session session = HibernateUtils.openSession();
         Concert concert = session.find(Concert.class, id);
