@@ -1,20 +1,18 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "concerts")
-@Getter
-@Setter
+@Table(name = "concert")
+@Data
 public class Concert {
     @Id
     Long concertId;
-//i will think relational
-    String genre; // we can use enum
+    ConcertCategory concertCategory;
     String singerName;
+    @OneToMany(mappedBy = "concert", fetch = FetchType.EAGER)
+    List<Schedule> scheduleList;
 }

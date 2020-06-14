@@ -1,24 +1,19 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tickets")
-@Getter
-@Setter
+@Data
 public class Ticket {
     @Id
     Long ticketId;
     int scheduleId;
     int ticketNumber;
     @ManyToOne
-    @JoinColumn(name = "ticketCategoryId")
-    TicketCategory ticketCategory;
-
-
+    @JoinColumn(name = "concertCategoryId")
+    ConcertCategory concertCategory;
 
 }
