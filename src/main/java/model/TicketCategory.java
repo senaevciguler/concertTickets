@@ -9,11 +9,4 @@ public enum TicketCategory {
     POP,
     ROCK,
     JAZZ;
-
-    @Id
-    Long ticketCategoryId;
-    BigDecimal price;
-
-    @OneToMany(mappedBy = "category")
-    List<Ticket> ticketList;
 }
