@@ -1,38 +1,39 @@
 package repositories;
 
-import model.Concert;
+import model.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtils;
 
 import java.util.List;
 
-public class ConcertRepository {
-    public List<Concert> findAll(){
+public class TicketRepository {
+
+    public List<Ticket> findAll(){
         Session session = HibernateUtils.openSession();
-        List<Concert> concerts = session.createQuery("select m from Concert m", Concert.class).getResultList();
+        List<Ticket> tickets = session.createQuery("select m from Ticket m", Ticket.class).getResultList();
         session.close();
-        return concerts;
+        return tickets;
     }
-    public Concert findById(Long id) {
+    public Ticket findById(Long id) {
         Session session = HibernateUtils.openSession();
-        Concert concert = session.find(Concert.class, id);
+        Ticket ticket = session.find(Ticket.class, id);
         session.close();
-        return concert;
+        return ticket;
     }
 
-    public void save(Concert concert) {
+    public void save(Ticket ticket) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(concert);
+        session.save(ticket);
         transaction.commit();
         session.close();
     }
 
-    public void delete(Concert concert) {
+    public void delete(Ticket ticket) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(concert);
+        session.delete(ticket);
         transaction.commit();
         session.close();
     }
@@ -41,10 +42,10 @@ public class ConcertRepository {
         delete(findById(id));
     }
 
-    public void update(Concert concert) {
+    public void update(Ticket ticket) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(concert);
+        session.update(ticket);
         transaction.commit();
         session.close();
     }

@@ -1,38 +1,38 @@
 package repositories;
 
-import model.Concert;
+import model.Schedule;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtils;
 
 import java.util.List;
 
-public class ConcertRepository {
-    public List<Concert> findAll(){
+public class ScheduleRepository {
+    public List<Schedule> findAll(){
         Session session = HibernateUtils.openSession();
-        List<Concert> concerts = session.createQuery("select m from Concert m", Concert.class).getResultList();
+        List<Schedule> schedules = session.createQuery("select m from Schedule m", Schedule.class).getResultList();
         session.close();
-        return concerts;
+        return schedules;
     }
-    public Concert findById(Long id) {
+    public Schedule findById(Long id) {
         Session session = HibernateUtils.openSession();
-        Concert concert = session.find(Concert.class, id);
+        Schedule schedule = session.find(Schedule.class, id);
         session.close();
-        return concert;
+        return schedule;
     }
 
-    public void save(Concert concert) {
+    public void save(Schedule schedule) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(concert);
+        session.save(schedule);
         transaction.commit();
         session.close();
     }
 
-    public void delete(Concert concert) {
+    public void delete(Schedule schedule) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(concert);
+        session.delete(schedule);
         transaction.commit();
         session.close();
     }
@@ -41,10 +41,10 @@ public class ConcertRepository {
         delete(findById(id));
     }
 
-    public void update(Concert concert) {
+    public void update(Schedule schedule) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(concert);
+        session.update(schedule);
         transaction.commit();
         session.close();
     }
