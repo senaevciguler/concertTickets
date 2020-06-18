@@ -3,20 +3,16 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "schedules")
 @Data
 public class Schedule {
     @Id
-    Long scheduleId;
-    Date startTime;
-    @ManyToOne
-    @JoinColumn(name = "concertId")
-    Concert concert;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+    LocalDateTime startTime;
+    String name;
 }
 
 

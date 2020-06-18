@@ -3,20 +3,16 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "audience")
 @Data
 public class Audience {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    Long audienceId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String firstName;
     String lastName;
     String email;
-    Date dateOfBirth;
-    @OneToMany(mappedBy = "audience")
-    List<Ticket> ticketList;
+    LocalDate dateOfBirth;
 }

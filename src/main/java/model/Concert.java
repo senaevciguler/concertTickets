@@ -3,16 +3,21 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.List;
 
 @Entity
-@Table(name = "concert")
 @Data
 public class Concert {
     @Id
-    Long concertId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
     ConcertCategory concertCategory;
     String singerName;
-    @OneToMany(mappedBy = "concert", fetch = FetchType.EAGER)
+    String address;
+    @OneToMany(fetch = FetchType.EAGER)
     List<Schedule> scheduleList;
+    BigDecimal pricePerEntry;
+    Currency currency;
 }
