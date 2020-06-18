@@ -4,16 +4,17 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "tickets")
-@Data
 public class Ticket {
     @Id
-    Long ticketId;
-    int scheduleId;
-    int ticketNumber;
+    private Long ticketId;
+    private int scheduleId;
+    private int ticketNumber;
     @ManyToOne
-    @JoinColumn(name = "concertCategoryId")
-    ConcertCategory concertCategory;
+    @JoinColumn(name = "audienceId")
+    Audience audience;
+    private ConcertCategory concertCategory;
 
 }
