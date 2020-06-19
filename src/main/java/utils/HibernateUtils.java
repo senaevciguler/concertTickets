@@ -25,7 +25,7 @@ public class HibernateUtils {
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
                 settings.put(Environment.URL,
-                        "jdbc:mysql://localhost:3306/concert");
+                        "jdbc:mysql://localhost:3306/ConcertTicketDB");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "Java2019.");
                 settings.put(Environment.DIALECT,
@@ -37,15 +37,9 @@ public class HibernateUtils {
                 configuration.addAnnotatedClass(Schedule.class);
                 configuration.addAnnotatedClass(Concert.class);
 
-                /*ServiceRegistry serviceRegistry = new
-                        StandardServiceRegistryBuilder().
-                        applySettings(configuration.getProperties()).build();
-
-                 */
                 StandardServiceRegistryBuilder serviceBuilder = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(serviceBuilder.build());
-                //sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -22,7 +22,7 @@ public class Application {
 
         ScheduleRepository scheduleRepository = new ScheduleRepository();
         Schedule schedule = scheduleRepository.findById((long) 1);
-        System.out.println(schedule.getConcert().getConcertCategory());
+        System.out.println(schedule.getStartTime());
 
 
     }

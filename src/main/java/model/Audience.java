@@ -4,7 +4,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "audiences")
 @Data
 public class Audience {
     @Id
@@ -14,5 +14,6 @@ public class Audience {
     private String lastName;
     private String email;
     private LocalDate dateOfBirth;
+
 
 }

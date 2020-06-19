@@ -6,8 +6,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.List;
+import java.util.Set;
 
-@Entity
+@Entity(name = "concerts")
 @Data
 public class Concert {
     @Id
@@ -18,7 +19,7 @@ public class Concert {
     String singerName;
     String address;
     @OneToMany(fetch = FetchType.EAGER)
-    List<Schedule> scheduleList;
+    Set<Schedule> scheduleList;
     BigDecimal pricePerEntry;
     Currency currency;
 }

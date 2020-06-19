@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.List;
 
-@Entity
+@Entity(name = "tickets")
 @Data
 public class Ticket {
     @Id
@@ -20,6 +20,7 @@ public class Ticket {
     List<Audience> audienceList;
     BigDecimal totalPrice;
     Currency currency;
+    @Enumerated(EnumType.STRING)
     private ConcertCategory concertCategory;
 
 }
