@@ -1,7 +1,5 @@
 package model;
 
 public enum ConcertCategory {
-    POP,
-    ROCK,
-    JAZZ;
+    POP, ROCK, JAZZ
 }
