@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "tickets")
 @Data
@@ -17,9 +18,9 @@ public class Ticket {
     @OneToOne
     Concert concert;
     @OneToMany(fetch = FetchType.EAGER)
-    List<Audience> audienceList;
+    Set<Audience> audienceList;
     BigDecimal totalPrice;
-    Currency currency;
+    String currency;
     @Enumerated(EnumType.STRING)
     private ConcertCategory concertCategory;
 

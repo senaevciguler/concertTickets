@@ -19,8 +19,8 @@ public class Concert {
     String singerName;
     String address;
     @OneToMany(fetch = FetchType.EAGER)
-    Set<Schedule> scheduleList;
+    Set<Schedule> schedules;
     BigDecimal pricePerEntry;
-    Currency currency;
+    String currency;
 }
 

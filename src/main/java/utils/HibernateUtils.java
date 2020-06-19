@@ -25,12 +25,13 @@ public class HibernateUtils {
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
                 settings.put(Environment.URL,
-                        "jdbc:mysql://localhost:3306/ConcertTicketDB");
+                        "jdbc:mysql://localhost:3306/concertticket");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "Java2019.");
                 settings.put(Environment.DIALECT,
                         "org.hibernate.dialect.MySQL5Dialect");
                 settings.put(Environment.SHOW_SQL, "false");
+                //settings.put(Environment.HBM2DDL_AUTO, "create-drop");
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Audience.class);
                 configuration.addAnnotatedClass(Ticket.class);
