@@ -51,8 +51,11 @@ public class Application {
 
         System.out.println(ticket.getAudienceList());
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("please enter your email");
+
         LoginService loginService = new LoginService();
-        loginService.isLogiSuccesful();
+        loginService.isLoginSuccesful(sc.nextLine());
     }
 
 }

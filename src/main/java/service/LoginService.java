@@ -4,15 +4,12 @@ import model.Audience;
 import repositories.AudienceRepository;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class LoginService {
 
-    public boolean isLogiSuccesful() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("please enter your email");
+    public boolean isLoginSuccesful(String mail) {
         AudienceRepository audienceRepository = new AudienceRepository();
-        List<Audience> audiences = audienceRepository.findByMail(sc.nextLine());
+        List<Audience> audiences = audienceRepository.findByMail(mail);
         if (audiences.size() > 0) {
             System.out.println("login success!");
             return true;
