@@ -6,8 +6,11 @@ import repositories.AudienceRepository;
 import repositories.ConcertRepository;
 import repositories.ScheduleRepository;
 import repositories.TicketRepository;
+import service.LoginService;
 
+import javax.sound.sampled.AudioInputStream;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 
@@ -32,7 +35,6 @@ public class Application {
         System.out.println(schedule.getStartTime());
 
 
-
         ConcertRepository concertRepository = new ConcertRepository();
         Concert concert = concertRepository.findById((long) 2);
         System.out.println(concert.getConcertCategory());
@@ -49,8 +51,8 @@ public class Application {
 
         System.out.println(ticket.getAudienceList());
 
-
-
+        LoginService loginService = new LoginService();
+        loginService.isLogiSuccesful();
     }
-}
 
+}
