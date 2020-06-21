@@ -1,7 +1,6 @@
 package service;
 
 import model.Concert;
-import model.Ticket;
 import repositories.ConcertRepository;
 
 import java.util.List;

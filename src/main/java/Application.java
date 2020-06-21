@@ -53,4 +53,3 @@ public class Application {
     }
 
 }
-//cannot simultaneously fetch multiple bags

@@ -1,10 +1,8 @@
 package model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name = "ticket")

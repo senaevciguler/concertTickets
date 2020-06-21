@@ -1,6 +1,5 @@
 package repositories;
 
-import model.Audience;
 import model.Concert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
