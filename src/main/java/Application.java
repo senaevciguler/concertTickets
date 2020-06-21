@@ -4,6 +4,8 @@ import model.Schedule;
 import model.Ticket;
 import service.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,8 +14,16 @@ public class Application {
 
         AudienceService audienceService = new AudienceService();
 
-        Audience audience = audienceService.findById((long) 1);
+        Audience audience = new Audience();
+        audience.setFirstName("Elif");
+        audience.setLastName("Evci");
+        audience.setDateOfBirth(LocalDate.of(1965,8,15));
+        audience.setEmail("elifevci@gmail.com");
+        audienceService.create(audience);
         System.out.println(audience);
+
+        //Audience audience = audienceService.findById((long) 1);
+        //System.out.println(audience);
 
         ScheduleService scheduleService = new ScheduleService();
         Schedule schedule = scheduleService.findById((long) 1);
