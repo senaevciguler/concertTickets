@@ -17,7 +17,7 @@ public class Application {
         Audience audience = new Audience();
         audience.setFirstName("Elif");
         audience.setLastName("Evci");
-        audience.setDateOfBirth(LocalDate.of(1965,8,15));
+        audience.setDateOfBirth(LocalDate.of(1965, 8, 15));
         audience.setEmail("elifevci@gmail.com");
         audienceService.create(audience);
         System.out.println(audience);

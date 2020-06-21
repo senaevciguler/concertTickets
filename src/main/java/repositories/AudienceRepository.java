@@ -10,7 +10,7 @@ import java.util.List;
 public class AudienceRepository {
     public List<Audience> findAll() {
         Session session = HibernateUtils.openSession();
-        List<Audience> audiences = session.createQuery("select a from audiences a", Audience.class).getResultList();
+        List<Audience> audiences = session.createQuery("select a from audience a", Audience.class).getResultList();
         session.close();
         return audiences;
     }
