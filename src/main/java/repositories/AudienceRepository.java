@@ -25,18 +25,19 @@ public class AudienceRepository {
 
     public List<Audience> findByMail(String mail) {
         Session session = HibernateUtils.openSession();
-        List<Audience> audiences = session.createQuery("select a from audiences a where a.email = :mail", Audience.class)
+        List<Audience> audiences = session.createQuery("select a from audience a where a.email = :mail", Audience.class)
                 .setParameter("mail", mail).getResultList();
         session.close();
         return audiences;
     }
 
-    public void save(Audience audience) {
+    public Long save(Audience audience) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(audience);
+        Long id = (Long) session.save(audience);
         transaction.commit();
         session.close();
+        return id;
     }
 
     public void delete(Audience audience) {

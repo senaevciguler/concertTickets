@@ -11,7 +11,7 @@ public class TicketRepository {
 
     public List<Ticket> findAll() {
         Session session = HibernateUtils.openSession();
-        List<Ticket> tickets = session.createQuery("select t from Ticket t", Ticket.class).getResultList();
+        List<Ticket> tickets = session.createQuery("select t from ticket t", Ticket.class).getResultList();
         session.close();
         return tickets;
     }

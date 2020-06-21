@@ -7,6 +7,8 @@ import repositories.ConcertRepository;
 import repositories.ScheduleRepository;
 import repositories.TicketRepository;
 import service.LoginService;
+
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -41,10 +43,14 @@ public class Application {
         System.out.println(ticket.getAudienceList());
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("please enter your email");
-
         LoginService loginService = new LoginService();
-        loginService.isLoginSuccesful(sc.nextLine());
+        boolean loginSuccess = false;
+        while (!loginSuccess) {
+            System.out.println("please enter your email");
+            loginSuccess = loginService.isLoginSuccesful(sc.nextLine());
+        }
+
     }
 
 }
+//cannot simultaneously fetch multiple bags

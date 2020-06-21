@@ -4,9 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
-@Entity(name = "tickets")
+@Entity(name = "ticket")
 @Data
 public class Ticket {
     @Id
@@ -19,7 +20,5 @@ public class Ticket {
     Set<Audience> audienceList;
     BigDecimal totalPrice;
     String currency;
-    @Enumerated(EnumType.STRING)
-    private ConcertCategory concertCategory;
 
 }

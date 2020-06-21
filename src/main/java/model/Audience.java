@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity(name = "audiences")
+@Entity(name = "audience")
 @Data
 public class Audience {
     @Id

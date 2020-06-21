@@ -1,5 +1,6 @@
 package repositories;
 
+import model.Audience;
 import model.Concert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,7 +11,7 @@ import java.util.List;
 public class ConcertRepository {
     public List<Concert> findAll() {
         Session session = HibernateUtils.openSession();
-        List<Concert> concerts = session.createQuery("select c from Concert c", Concert.class).getResultList();
+        List<Concert> concerts = session.createQuery("select c from concert c", Concert.class).getResultList();
         session.close();
         return concerts;
     }

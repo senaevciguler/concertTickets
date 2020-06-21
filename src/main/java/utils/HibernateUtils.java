@@ -25,7 +25,7 @@ public class HibernateUtils {
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
                 settings.put(Environment.URL,
-                        "jdbc:mysql://localhost:3306/concertticket");
+                        "jdbc:mysql://localhost:3306/ticketconcert");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "Java2019.");
                 settings.put(Environment.DIALECT,
