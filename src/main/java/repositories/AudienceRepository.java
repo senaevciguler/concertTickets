@@ -31,13 +31,12 @@ public class AudienceRepository {
         return audiences;
     }
 
-    public Long save(Audience audience) {
+    public void save(Audience audience) {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
-        Long id = (Long) session.save(audience);
+        session.save(audience);
         transaction.commit();
         session.close();
-        return id;
     }
 
     public void delete(Audience audience) {

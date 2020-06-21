@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name = "concert")
 @Data
@@ -16,8 +16,8 @@ public class Concert {
     ConcertCategory concertCategory;
     String singerName;
     String address;
-    @OneToMany(fetch = FetchType.EAGER)
-    Set<Schedule> schedules;
+    @OneToMany
+    List<Schedule> schedules;
     BigDecimal pricePerEntry;
     String currency;
 }
