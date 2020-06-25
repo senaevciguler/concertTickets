@@ -30,28 +30,25 @@ public class Application {
         System.out.println(schedule.getStartTime());
 
         ConcertService concertService = new ConcertService();
-        Concert concert = concertService.findById((long) 2);
+        Concert concert = concertService.findById(2L);
         System.out.println(concert.getConcertCategory());
 
         concert.setSchedules(List.of(schedule));
         concertService.update(concert);
 
         TicketService ticketService = new TicketService();
-        Ticket ticket = ticketService.findById((long) 2);
+        Ticket ticket = ticketService.findById(2L);
 
         ticket.setAudienceList(List.of(audience));
         ticketService.update(ticket);
 
         System.out.println(ticket.getAudienceList());
 
-        Scanner sc = new Scanner(System.in);
-        LoginService loginService = new LoginService();
-        boolean loginSuccess = false;
-        while (!loginSuccess) {
-            System.out.println("please enter your email");
-            loginSuccess = loginService.isLoginSuccesful(sc.nextLine());
-        }
-
+        /*
+        TicketFlow ticketFlow= new TicketFlow();
+        ticketFlow.login();
+        ticketFlow
+     */
     }
 
 }
