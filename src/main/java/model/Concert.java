@@ -16,7 +16,7 @@ public class Concert {
     ConcertCategory concertCategory;
     String singerName;
     String address;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     List<Schedule> schedules;
     BigDecimal pricePerEntry;
     String currency;
