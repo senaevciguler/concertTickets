@@ -1,9 +1,9 @@
 package scanner;
+
 import model.Concert;
 import model.Ticket;
 import service.ConcertService;
 import service.LoginService;
-import service.TicketService;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class TicketFlow {
     private Map<Ticket, Integer> productStock;
     Scanner sc = new Scanner(System.in);
+
     public void login() {
         LoginService loginService = new LoginService();
         boolean loginSuccess = false;
@@ -30,17 +31,32 @@ public class TicketFlow {
 
     }
 
-    public void payToTicket() {
-        System.out.println("write person amount");
-        BigDecimal person = sc.nextBigDecimal();
+    public BigDecimal payToTicket() {
         Ticket ticket = new Ticket();
         Concert concert = new Concert();
-        ticket.setTotalPrice(concert.getPricePerEntry().multiply(person));
 
+        System.out.println("write person amount");
+        BigDecimal person = sc.nextBigDecimal();
+        System.out.println("please enter your payment:");
+        BigDecimal payment = sc.nextBigDecimal();
+        BigDecimal totalPrice = ticket.setTotalPrice(concert.getPricePerEntry().multiply(person));
+        if (payment.compareTo(totalPrice) == 0) {
+            System.out.println("thank you for payment, your ticket number is:" + giveTicketNumber());
+        } else if (payment.compareTo(totalPrice) < 0) {
+            System.out.println("you should pay more" + totalPrice.subtract(payment));
+        } else {
+            return payBack(payment, totalPrice);
+        }
+        return null;
     }
 
-    public void giveTicketNumber() {
+    public BigDecimal payBack(BigDecimal enter, BigDecimal sum) {
+        return sum.subtract(enter);
+    }
 
+    public String giveTicketNumber() {
+        Ticket ticket = new Ticket();
+        return ticket.getTicketNumber();
     }
 }
 

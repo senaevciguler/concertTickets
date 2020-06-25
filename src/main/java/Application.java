@@ -2,6 +2,7 @@ import model.Audience;
 import model.Concert;
 import model.Schedule;
 import model.Ticket;
+import scanner.TicketFlow;
 import service.*;
 
 import java.time.LocalDate;
@@ -44,11 +45,12 @@ public class Application {
 
         System.out.println(ticket.getAudienceList());
 
-        /*
         TicketFlow ticketFlow= new TicketFlow();
         ticketFlow.login();
-        ticketFlow
-     */
+        ticketFlow.selectConcert(1L);
+        ticketFlow.payToTicket();
+
+
     }
 
 }

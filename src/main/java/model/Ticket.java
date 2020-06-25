@@ -20,4 +20,8 @@ public class Ticket {
     BigDecimal totalPrice;
     String currency;
 
+    public BigDecimal setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+        return totalPrice;
+    }
 }
